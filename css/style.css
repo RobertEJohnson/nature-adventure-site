@@ -8,14 +8,17 @@ Dark green: #28b485
 */
 
 /* Basic Reset */
-* {
+*, *::after, *::before {
     margin: 0;
     padding: 0;
     /* This changes the box model, so that borders and 
     paddings are not added to total width of an element */
-    box-sizing: border-box;
+    box-sizing: inherit;
 }
 
+html {
+    box-sizing: border-box;
+}
 /* Project wide font definition */
 body {
     /* Lato is imported from google fonts */
@@ -28,13 +31,19 @@ body {
 }
 
 .header {
-    /* Vh is not 100 so user can tell theres more content*/
+    /* Vh is not 100 so user can tell theres more content below*/
     height: 95vh;
+
+    /*Background-image has one linear-gradient over one url jpg*/
     background-image: linear-gradient(
         to right bottom,
         rgba(128, 214, 113, .6),
         rgb(40, 180, 133, .6)), 
     url(../img/hero.jpg);
+    /* Cover the page */
     background-size: cover;
+    /* Make sure the image scales responsively with the top static */
     background-position: top;
+    /* Clip to a shape of a rectangle */
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
 }
