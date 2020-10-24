@@ -46,4 +46,46 @@ body {
     background-position: top;
     /* Clip to a shape of a rectangle */
     clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    /* position relative for its child element which has an absolute position */
+    position: relative;
+}
+
+.logo {
+    height: 35px;
+}
+
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+        /* spreads out the word between letters, to make a roomy header */
+}
+
+.heading-primary-main {
+    /* Display block to have the element drop the next below itself;*/
+    display: block;
+    letter-spacing: 35px;
+    font-size: 60px;
+    font-weight: 400;
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    letter-spacing: 17.2px;
+    font-weight: 700;
+}
+
+.text-box {
+    position: absolute;
+    /* top and left %'s are in relation to the parent element */
+    top: 40%;
+    left: 50%;
+    /* transform: translate() is in relation to the element itself */
+    transform: translate(-50%, -50%);
 }
