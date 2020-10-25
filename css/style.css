@@ -64,6 +64,13 @@ body {
     color: #fff;
     text-transform: uppercase;
         /* spreads out the word between letters, to make a roomy header */
+    
+        /* 
+        Determines if the back part of an element is hidden while animating 
+        This can get rid of a 1-2px shake.
+        */
+        backface-visibility: hidden;
+        margin-bottom: 30px;
 }
 
 .heading-primary-main {
@@ -76,6 +83,14 @@ body {
     /* Animation Properties */
     animation-name: moveInLeft;
     animation-duration: 1s;
+
+    /* 
+    Other Cool animation properties 
+    
+    animation-delay: 1s;
+    animation-iteration-count: 3;
+    animation-timing-function: ease-in;
+    */
 }
 
 .heading-primary-sub {
@@ -89,12 +104,8 @@ body {
     animation-duration: 1s;
     animation-timing-function: ease-in;
 
-    /* 
-    Other Cool animation properties 
-    
-    animation-delay: 1s;
-    animation-iteration-count: 3;
-    */
+    /* Shorthand animation */
+    animation: moveInRight 1s ease-in;
 }
 
 .text-box {
@@ -104,6 +115,9 @@ body {
     left: 50%;
     /* transform: translate() is in relation to the element itself */
     transform: translate(-50%, -50%);
+
+    /* pretty self explanatory, it will pass to all children */
+    text-align: center;
 }
 
 /* 
@@ -138,4 +152,45 @@ For an animation to work there are two properties we need to specify:
         opacity: 1;
         transform: translateX(0);
     }
+}
+
+/* 
+link is a pseudo-class, it styles elements under a special condition 
+
+visited: the styling after it is clicked
+*/
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    /* 
+    We have to change the display type, since an a tag is just text.
+    We want the display to be inline-block
+    */
+    display: inline-block;
+    /* curve the edges of the button */
+    border-radius: 100px;
+
+    /* control speed of animation, must be on initial state */
+    transition: all .2s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, .3);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+}
+
+.btn-green {
+
 }
