@@ -99,13 +99,8 @@ body {
     letter-spacing: 17.2px;
     font-weight: 700;
 
-    /* Essential Animation Properties */
-    animation-name: moveInRight;
-    animation-duration: 1s;
-    animation-timing-function: ease-in;
-
     /* Shorthand animation */
-    animation: moveInRight 1s ease-in;
+    animation: moveInRight .8s ease-out;
 }
 
 .text-box {
@@ -118,6 +113,7 @@ body {
 
     /* pretty self explanatory, it will pass to all children */
     text-align: center;
+    backface-visibility: hidden;
 }
 
 /* 
@@ -140,13 +136,10 @@ For an animation to work there are two properties we need to specify:
     }
 }
 
-@keyframes moveInRight{
+@keyframes moveInRight {
     0% {
         opacity: 0;
         transform: translateX(100px);
-    }
-    90% {
-        transform: translateX(5px);
     }
     100% {
         opacity: 1;
@@ -154,6 +147,34 @@ For an animation to work there are two properties we need to specify:
     }
 }
 
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    80% {
+        transform: translateY(5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes buttonEnlargeFlash {
+    0% {
+        opacity: 1;
+        transform: scaleX(1) scaleY(1)
+    }
+    100% {
+        opacity: 0;
+        transform: scaleX(1.15) scaleY(1.4);
+    }
+}
+
+.btn {
+    backface-visibility: hidden;
+}
 /* 
 link is a pseudo-class, it styles elements under a special condition 
 
@@ -174,15 +195,17 @@ visited: the styling after it is clicked
 
     /* control speed of animation, must be on initial state */
     transition: all .2s;
+
+    position: relative;
 }
 
 .btn:hover {
-    transform: translateY(-3px);
+    transform: translateY(-4px);
     box-shadow: 0 10px 10px rgba(0, 0, 0, .3);
 }
 
 .btn:active {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
 }
 
@@ -191,6 +214,38 @@ visited: the styling after it is clicked
     color: #777;
 }
 
-.btn-green {
 
+.btn::after {
+    /* In order for the after element to be created we need a display/content property */
+    display: inline-block;
+    content: '';
+
+    /* 
+    The after pseudo-class is treated as a child of the selector its attached to
+    100% of its parent.
+    */
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+
+    /* Put the after element behind its RELATIVE parent (must be specified) */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    animation: buttonEnlargeFlash ease-out .5s;
+}
+
+.btn-animated {
+    animation: moveInBottom ease-in .5s .5s;
+
+    /* The first 0% keyframe styles will be applied before the animation starts */
+    animation-fill-mode: backwards;
 }

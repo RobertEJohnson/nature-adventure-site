@@ -38,3 +38,26 @@ Transform text to uppercase.
 Increase the spacing between letters within text.
 - letter-spacing: 17px;
 
+### CSS Animations
+
+There are generally two types of animations 
+
+Using Transitions and hover effects.
+
+#### Animated Button
+
+What are pseudo-elements and pseudo-classes?
+
+Ripped from w3schools
+The :visited selector is used to select visited links.
+Tip: Use the :link selector to style links to unvisited pages, the :hover selector to style links when you mouse over them, and the :active selector to style links when you click on them.
+
+How and why to use the ::after pseudo-element;
+- must specify display type and content
+- can be used to 
+
+
+How to create a creative hover animation effect using the transition property.
+
+/* The first 0% keyframe styles will be applied before the animation starts */
+```animation-fill-mode: backwards;```
