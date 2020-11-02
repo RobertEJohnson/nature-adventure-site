@@ -18,16 +18,38 @@ Dark green: #28b485
 
 html {
     box-sizing: border-box;
+    /* 
+    We set the font-size to 10 for easy future rem usage 
+    
+    font-size: 10px;
+
+    Now calculations can be done easily since 10 is a great divider,
+    16px? thats 1.6rem etc.
+
+    The problem with this is it will overwrite user font-sizes if a user wants to overwrite a font-size for accessibility
+    A much better practice is to still shoot for 10px, but calculate the 10px off of percentages of the default value.
+
+    The default value: 16px
+    The desired value: 10px
+
+    The calculation: 10/16 = 0.625
+    The percentage: 62.5%
+
+    So with that we can now achieve 10px for a good rem measurement AND be accessible
+    */
+
+    font-size: 62.5%;
+    /* Rems are not developed below internet explorer 9 */
 }
 /* Project wide font definition */
 body {
     /* Lato is imported from google fonts */
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1.6rem;
     line-height: 1.7;
     color: #777;
-    padding: 30px;
+    padding: 3rem;
 }
 
 .header {
@@ -51,13 +73,13 @@ body {
 }
 
 .logo {
-    height: 35px;
+    height: 3.5rem;
 }
 
 .logo-box {
     position: absolute;
-    top: 40px;
-    left: 40px;
+    top: 4rem;
+    left: 4rem;
 }
 
 .heading-primary {
@@ -70,14 +92,14 @@ body {
         This can get rid of a 1-2px shake.
         */
         backface-visibility: hidden;
-        margin-bottom: 30px;
+        margin-bottom: 3rem;
 }
 
 .heading-primary-main {
     /* Display block to have the element drop the next below itself;*/
     display: block;
-    letter-spacing: 35px;
-    font-size: 60px;
+    letter-spacing: 3.5rem;
+    font-size: 6rem;
     font-weight: 400;
 
     /* Animation Properties */
@@ -95,8 +117,8 @@ body {
 
 .heading-primary-sub {
     display: block;
-    font-size: 20px;
-    letter-spacing: 17.2px;
+    font-size: 2rem;
+    letter-spacing: 1.75rem;
     font-weight: 700;
 
     /* Shorthand animation */
@@ -128,7 +150,7 @@ For an animation to work there are two properties we need to specify:
 @keyframes moveInLeft {
     0% {
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateX(-10rem);
     }
     100% {
         opacity: 1;
@@ -139,7 +161,7 @@ For an animation to work there are two properties we need to specify:
 @keyframes moveInRight {
     0% {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(10rem);
     }
     100% {
         opacity: 1;
@@ -150,10 +172,10 @@ For an animation to work there are two properties we need to specify:
 @keyframes moveInBottom {
     0% {
         opacity: 0;
-        transform: translateY(50px);
+        transform: translateY(5rem);
     }
     80% {
-        transform: translateY(5px);
+        transform: translateY(.5rem);
     }
     100% {
         opacity: 1;
@@ -184,14 +206,14 @@ visited: the styling after it is clicked
 .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
     /* 
     We have to change the display type, since an a tag is just text.
     We want the display to be inline-block
     */
     display: inline-block;
     /* curve the edges of the button */
-    border-radius: 100px;
+    border-radius: 10rem;
 
     /* control speed of animation, must be on initial state */
     transition: all .2s;
@@ -200,13 +222,13 @@ visited: the styling after it is clicked
 }
 
 .btn:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 10px rgba(0, 0, 0, .3);
+    transform: translateY(-.4rem);
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, .3);
 }
 
 .btn:active {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+    transform: translateY(-.2rem);
+    box-shadow: 0 .4rem .6rem rgba(0, 0, 0, .3);
 }
 
 .btn-white {
@@ -226,7 +248,7 @@ visited: the styling after it is clicked
     */
     height: 100%;
     width: 100%;
-    border-radius: 100px;
+    border-radius: 10rem;
 
     /* Put the after element behind its RELATIVE parent (must be specified) */
     position: absolute;
@@ -244,7 +266,7 @@ visited: the styling after it is clicked
 }
 
 .btn-animated {
-    animation: moveInBottom ease-in .5s .5s;
+    animation: moveInBottom ease-in .55s .5s;
 
     /* The first 0% keyframe styles will be applied before the animation starts */
     animation-fill-mode: backwards;
