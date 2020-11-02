@@ -72,11 +72,11 @@ body {
     position: relative;
 }
 
-.logo {
+.header__logo {
     height: 3.5rem;
 }
 
-.logo-box {
+.header__logo-box {
     position: absolute;
     top: 4rem;
     left: 4rem;
@@ -95,7 +95,7 @@ body {
         margin-bottom: 3rem;
 }
 
-.heading-primary-main {
+.heading-primary--main {
     /* Display block to have the element drop the next below itself;*/
     display: block;
     letter-spacing: 3.5rem;
@@ -115,7 +115,7 @@ body {
     */
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
     display: block;
     font-size: 2rem;
     letter-spacing: 1.75rem;
@@ -125,7 +125,7 @@ body {
     animation: moveInRight .8s ease-out;
 }
 
-.text-box {
+.header__text-box {
     position: absolute;
     /* top and left %'s are in relation to the parent element */
     top: 40%;
@@ -231,7 +231,7 @@ visited: the styling after it is clicked
     box-shadow: 0 .4rem .6rem rgba(0, 0, 0, .3);
 }
 
-.btn-white {
+.btn--white {
     background-color: #fff;
     color: #777;
 }
@@ -257,7 +257,7 @@ visited: the styling after it is clicked
     z-index: -1;
 }
 
-.btn-white::after {
+.btn--white::after {
     background-color: #fff;
 }
 
@@ -265,7 +265,7 @@ visited: the styling after it is clicked
     animation: buttonEnlargeFlash ease-out .5s;
 }
 
-.btn-animated {
+.btn--animated {
     animation: moveInBottom ease-in .55s .5s;
 
     /* The first 0% keyframe styles will be applied before the animation starts */
