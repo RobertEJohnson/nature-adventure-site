@@ -308,3 +308,184 @@ We want an easy way to change all the measurements on the page with one simple s
 For example, when we hit a breakpoint for a mobile device.
 
 Instead of writing hundreds of lines of code with media queries we can change simple setting, the global font-size.
+
+### The Visual Formatting Model
+
+The algorithm that calculates boxes and determines the layout of these boxes, for each element in the render tree in order to determine the final layout of the page.
+
+In order to do this, these factors are taken into account:
+
+**Dimension of boxes:** the box model.
+
+  Content - where text images etc go.
+  Padding - transparent area around the content but **inside** the box.
+  Border - the border goes around the padding and content.
+  Margin - space between boxes.
+  Fill area - the area that gets filled with background color or background image, this includes all padding and content, not the margin.
+
+  **Box-sizing: content-box:**
+
+  Total width = 
+  right border + right padding + specified width + left padding + left border
+
+  Total height = 
+  top border + top padding + specified height + bottom padding + bottom border;
+
+    Example: height = 
+    0 + 20px + 100px + 20px + 0 = 140px
+
+  **Box-sizing: border-box:**
+
+  Total width =
+  specified width
+
+  Total Height =
+  specified height
+
+**Box type:** inline, block, and inline-block.
+**Positioning scheme:** floats and positioning.
+**Stacking contexts.**
+**Other elements** in the render tree.
+**External factors:** Viewport size, dimensions of images, etc.
+
+After taking all these factors together the browser knows how to build the website.
+
+### Types of Box Types
+
+1. Inline
+
+The opposite of Block-Level elements
+
+Content is distributed in lines.
+Occupies ```only the content space it needs```.
+```No line-breaks```.
+```No heights and widths```.
+```You can only specify Padding and margins horizontally``` (left and right)
+
+2. Block-Level
+
+  Elements formatted visually as blocks
+  Always take 100% of parent's width, **as much as possible**.
+  Stack vertically one after another, **new line breaks are created after**
+  
+  Box-model applies as shown
+    display: block;
+    (display: flex)
+    (display: list-item)
+    (display: table)
+
+  elements have default levels, divs and paragraphs are default block.
+
+3. Inline-Block
+   
+   A mix of block and inline
+   Occupies only the content's space
+   NO line-breaks
+   Box-model applies as it is shown in the inspector.
+
+### Positioning Schemes: Normal Flow, Absolute Positioning and Floats
+
+```Default``` Normal Flow:
+
+- Default Positioning scheme.
+- Not floated.
+- Not absolutely positioned.
+- Elements lad out according to their source order.
+
+```position: relative;```
+
+Floats:
+
+- Elements are removed from the normal flow.
+- Text and inline elements will wrap around the floated element.
+- The container will not adjust its height to the element.
+
+Shifted to the left or right as far as possible, until it touches the edge of its containing box or another floated element.
+
+```float: left;```
+```float: right;```
+
+Absolute Positioning:
+
+- Element is removed from the normal flow.
+- ````NO impact on surrounding content```` or elements.
+- Can Overlap elements occupying the same space.
+- We use top, bottom, left and right to offset the element from its relatively positioned container.
+
+```position: absolute;```
+```position: fixed;```
+
+### Stacking Contexts
+
+Determines in what order elements are rendered on the page.
+
+Most widely known CSS property to create a new stacking context is ```z-index```
+
+Layer 1 (Bottom)
+
+```z-index: 3;```
+```position: relative;```
+
+Layer 2 (Middle)
+
+```z-index: 2;```
+```position: absolute;```
+
+Layer 3 (Top)
+
+```z-index: 3```
+```position: relative;```
+
+```Opacity``` values different from 1, ```Transform```, or ```Transitions``` also create stacking contexts.
+
+### Maintainable and Scalable Code
+
+A good practice is to ```think```, ```build```, ```architect```.
+
+Think:
+  Think about hte layout of your web app before writing code.
+
+#### Component-Driven Design
+
+Components are:
+  - Modular building blocks that make up interfaces.
+  - Held together by the layout of the page.
+  - Re-usable across a project, and between different projects.
+  - Independent, allowing us to use them anywhere on the page
+
+All of this will make CSS more maintainable and easier to scale.
+
+Similar to ```Atomic Design```
+
+
+Build:
+  Build your layout in HTML and CSS with a consistent structure for naming classes.
+
+#### Structure for naming classes
+
+  BEM - Block Element Modifier
+
+  Block: Standalone component that is meaningful on its own.
+
+  Element: part of a block that has no standalone meaning.
+
+  Modifier: a different version of a block or an element.
+
+  All BEM selectors are low-specificity
+
+Architect:
+  Create a logical architecture for your CSS with files and folders.
+
+#### Seven One (7-1) Pattern
+
+7 different folders for partial Sass files,
+1 main sass file to import all other files into a compiled CSS stylesheet
+
+7 partials:
+1. base/ (basic product definition)
+2. component/ (one file per component)
+3. layout/ (define layout of project)
+4. pages/ (styles for specific pages)
+5. themes/ (for different visual themes)
+6. abstracts/ (code that doesnt output css, variables and mixins)
+7. vendors/ (all third-party CSS goes)
