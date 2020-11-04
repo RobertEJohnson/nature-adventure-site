@@ -514,3 +514,25 @@ Sass Syntax:
 
 SCSS Syntax:
   preserves the way original css looks like
+
+### SCSS File Tress Notes Extended
+
+1. Abstracts Folder
+   - Contains things that dont create css like functions, mixins, variabls
+2. Base Folder
+   -  low-level basics
+   - resets/ styles for html / body element selects
+3. Components Folder
+   - Independent 
+   - Reuseable across website
+4. Layout Folder
+   - Holds components together
+5. Pages Folder
+   - Styles that only apply for that page
+   - Specific architecture for a page
+6. Themes Folder
+   - For different themes
+7. Vendors Folder
+   - for third-party imports
+   - animation libraries
+   - icon libraries etc
