@@ -489,3 +489,28 @@ Architect:
 5. themes/ (for different visual themes)
 6. abstracts/ (code that doesnt output css, variables and mixins)
 7. vendors/ (all third-party CSS goes)
+
+### SCSS
+
+Adds power and elegance to basic CSS
+
+Adds powerful tools to CSS but doesn't change how CSS works.
+
+- Gives us variables
+- Nesting
+- Operators for math
+- Partials and imports
+  - Allows CSS to be written in other files and imported into one single file
+- Mixins to write ```reusable pieces of CSS``` code
+- Functions 
+  - similar to mixins with the difference that they ```produce a value``` that can than be used
+- Extends 
+  - to make different selectors ```inherit declarations``` that are common to all of them
+- Control Directives: conditionals and loops
+
+Sass Syntax:
+  indentation sensitive
+  no curly braces
+
+SCSS Syntax:
+  preserves the way original css looks like
