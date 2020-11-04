@@ -2,3 +2,42 @@
 // resets/ styles for html / body element selects
 
 //this file is a partial to import to main.scss
+
+
+/* Basic Reset */
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    /* This changes the box model, so that borders and 
+    paddings are not added to total width of an element */
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    /* 
+    We set the font-size to 10 for easy future rem usage 
+    
+    font-size: 10px;
+
+    Now calculations can be done easily since 10 is a great divider,
+    16px? thats 1.6rem etc.
+
+    The problem with this is it will overwrite user font-sizes if a user wants to overwrite a font-size for accessibility
+    A much better practice is to still shoot for 10px, but calculate the 10px off of percentages of the default value.
+
+    The default value: 16px
+    The desired value: 10px
+
+    The calculation: 10/16 = 0.625
+    The percentage: 62.5%
+
+    So with that we can now achieve 10px for a good rem measurement AND be accessible
+    */
+
+
+    //this defines what one 'rem' is
+    font-size: 62.5%;
+    
+    /* Rems are not developed below internet explorer 9 */
+}

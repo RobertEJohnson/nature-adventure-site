@@ -1,0 +1,42 @@
+.header {
+    /* Vh is not 100 so user can tell theres more content below*/
+    height: 95vh;
+
+    /*Background-image has one linear-gradient over one url jpg*/
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, .6),
+        rgba($color-primary-dark, .6)), 
+    url(../img/hero.jpg);
+    /* Cover the page */
+    background-size: cover;
+    /* Make sure the image scales responsively with the top static */
+    background-position: top;
+    /* Clip to a shape of a rectangle */
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    /* position relative for its child element which has an absolute position */
+    position: relative;
+
+    &__logo {
+        height: 3.5rem;
+    }
+
+    &__logo-box {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+
+    &__text-box {
+        position: absolute;
+        /* top and left %'s are in relation to the parent element */
+        top: 40%;
+        left: 50%;
+        /* transform: translate() is in relation to the element itself */
+        transform: translate(-50%, -50%);
+    
+        /* pretty self explanatory, it will pass to all children */
+        text-align: center;
+        backface-visibility: hidden;
+    }
+}
