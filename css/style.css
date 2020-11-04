@@ -1,24 +1,15 @@
-/*
-COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
-*/
-
 /* Basic Reset */
 *, *::after, *::before {
-    margin: 0;
-    padding: 0;
-    /* This changes the box model, so that borders and 
+  margin: 0;
+  padding: 0;
+  /* This changes the box model, so that borders and 
     paddings are not added to total width of an element */
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 html {
-    box-sizing: border-box;
-    /* 
+  box-sizing: border-box;
+  /* 
     We set the font-size to 10 for easy future rem usage 
     
     font-size: 10px;
@@ -37,105 +28,95 @@ html {
 
     So with that we can now achieve 10px for a good rem measurement AND be accessible
     */
-
-    font-size: 62.5%;
-    /* Rems are not developed below internet explorer 9 */
+  font-size: 62.5%;
+  /* Rems are not developed below internet explorer 9 */
 }
+
 /* Project wide font definition */
 body {
-    /* Lato is imported from google fonts */
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    font-size: 1.6rem;
-    line-height: 1.7;
-    color: #777;
-    padding: 3rem;
+  /* Lato is imported from google fonts */
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
 }
 
 .header {
-    /* Vh is not 100 so user can tell theres more content below*/
-    height: 95vh;
-
-    /*Background-image has one linear-gradient over one url jpg*/
-    background-image: linear-gradient(
-        to right bottom,
-        rgba(128, 214, 113, .6),
-        rgb(40, 180, 133, .6)), 
-    url(../img/hero.jpg);
-    /* Cover the page */
-    background-size: cover;
-    /* Make sure the image scales responsively with the top static */
-    background-position: top;
-    /* Clip to a shape of a rectangle */
-    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-    /* position relative for its child element which has an absolute position */
-    position: relative;
+  /* Vh is not 100 so user can tell theres more content below*/
+  height: 95vh;
+  /*Background-image has one linear-gradient over one url jpg*/
+  background-image: linear-gradient(to right bottom, rgba(85, 197, 122, 0.6), rgba(40, 180, 133, 0.6)), url(../img/hero.jpg);
+  /* Cover the page */
+  background-size: cover;
+  /* Make sure the image scales responsively with the top static */
+  background-position: top;
+  /* Clip to a shape of a rectangle */
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  /* position relative for its child element which has an absolute position */
+  position: relative;
 }
 
 .header__logo {
-    height: 3.5rem;
+  height: 3.5rem;
 }
 
 .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
-}
-
-.heading-primary {
-    color: #fff;
-    text-transform: uppercase;
-        /* spreads out the word between letters, to make a roomy header */
-    
-        /* 
-        Determines if the back part of an element is hidden while animating 
-        This can get rid of a 1-2px shake.
-        */
-        backface-visibility: hidden;
-        margin-bottom: 3rem;
-}
-
-.heading-primary--main {
-    /* Display block to have the element drop the next below itself;*/
-    display: block;
-    letter-spacing: 3.5rem;
-    font-size: 6rem;
-    font-weight: 400;
-
-    /* Animation Properties */
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-
-    /* 
-    Other Cool animation properties 
-    
-    animation-delay: 1s;
-    animation-iteration-count: 3;
-    animation-timing-function: ease-in;
-    */
-}
-
-.heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    letter-spacing: 1.75rem;
-    font-weight: 700;
-
-    /* Shorthand animation */
-    animation: moveInRight .8s ease-out;
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
 }
 
 .header__text-box {
-    position: absolute;
-    /* top and left %'s are in relation to the parent element */
-    top: 40%;
-    left: 50%;
-    /* transform: translate() is in relation to the element itself */
-    transform: translate(-50%, -50%);
+  position: absolute;
+  /* top and left %'s are in relation to the parent element */
+  top: 40%;
+  left: 50%;
+  /* transform: translate() is in relation to the element itself */
+  transform: translate(-50%, -50%);
+  /* pretty self explanatory, it will pass to all children */
+  text-align: center;
+  backface-visibility: hidden;
+}
 
-    /* pretty self explanatory, it will pass to all children */
-    text-align: center;
-    backface-visibility: hidden;
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  /* spreads out the word between letters, to make a roomy header */
+  /* 
+        Determines if the back part of an element is hidden while animating 
+        This can get rid of a 1-2px shake.
+        */
+  backface-visibility: hidden;
+  margin-bottom: 3rem;
+}
+
+.heading-primary--main {
+  /* Display block to have the element drop the next below itself;*/
+  display: block;
+  letter-spacing: 3.5rem;
+  font-size: 6rem;
+  font-weight: 400;
+  /* Animation Properties */
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  /* 
+            Other Cool animation properties 
+            
+            animation-delay: 1s;
+            animation-iteration-count: 3;
+            animation-timing-function: ease-in;
+            */
+}
+
+.heading-primary--sub {
+  display: block;
+  font-size: 2rem;
+  letter-spacing: 1.75rem;
+  font-weight: 700;
+  /* Shorthand animation */
+  animation: moveInRight .8s ease-out;
 }
 
 /* 
@@ -148,126 +129,120 @@ For an animation to work there are two properties we need to specify:
 2. animation-duration: 3s;
 */
 @keyframes moveInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-10rem);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes moveInRight {
-    0% {
-        opacity: 0;
-        transform: translateX(10rem);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes moveInBottom {
-    0% {
-        opacity: 0;
-        transform: translateY(5rem);
-    }
-    80% {
-        transform: translateY(.5rem);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(5rem);
+  }
+  80% {
+    transform: translateY(0.5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes buttonEnlargeFlash {
-    0% {
-        opacity: 1;
-        transform: scaleX(1) scaleY(1)
-    }
-    100% {
-        opacity: 0;
-        transform: scaleX(1.15) scaleY(1.4);
-    }
+  0% {
+    opacity: 1;
+    transform: scaleX(1) scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(1.15) scaleY(1.4);
+  }
 }
 
 .btn {
-    backface-visibility: hidden;
-}
-/* 
-link is a pseudo-class, it styles elements under a special condition 
+  backface-visibility: hidden;
+  /* 
+    link is a pseudo-class, it styles elements under a special condition 
 
-visited: the styling after it is clicked
-*/
-.btn:link,
-.btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1.5rem 4rem;
-    /* 
-    We have to change the display type, since an a tag is just text.
-    We want the display to be inline-block
+    visited: the styling after it is clicked
     */
-    display: inline-block;
-    /* curve the edges of the button */
-    border-radius: 10rem;
+}
 
-    /* control speed of animation, must be on initial state */
-    transition: all .2s;
-
-    position: relative;
+.btn:link, .btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  /* 
+        We have to change the display type, since an a tag is just text.
+        We want the display to be inline-block
+        */
+  display: inline-block;
+  /* curve the edges of the button */
+  border-radius: 10rem;
+  /* control speed of animation, must be on initial state */
+  transition: all .2s;
+  position: relative;
 }
 
 .btn:hover {
-    transform: translateY(-.4rem);
-    box-shadow: 0 1rem 1rem rgba(0, 0, 0, .3);
-}
-
-.btn:active {
-    transform: translateY(-.2rem);
-    box-shadow: 0 .4rem .6rem rgba(0, 0, 0, .3);
-}
-
-.btn--white {
-    background-color: #fff;
-    color: #777;
-}
-
-
-.btn::after {
-    /* In order for the after element to be created we need a display/content property */
-    display: inline-block;
-    content: '';
-
-    /* 
-    The after pseudo-class is treated as a child of the selector its attached to
-    100% of its parent.
-    */
-    height: 100%;
-    width: 100%;
-    border-radius: 10rem;
-
-    /* Put the after element behind its RELATIVE parent (must be specified) */
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
-
-.btn--white::after {
-    background-color: #fff;
+  transform: translateY(-0.4rem);
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.3);
 }
 
 .btn:hover::after {
-    animation: buttonEnlargeFlash ease-out .5s;
+  animation: buttonEnlargeFlash ease-out .5s;
+}
+
+.btn:active {
+  transform: translateY(-0.2rem);
+  box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.3);
+}
+
+.btn--white {
+  background-color: #fff;
+  color: #777;
+}
+
+.btn--white::after {
+  background-color: #fff;
+}
+
+.btn::after {
+  /* In order for the after element to be created we need a display/content property */
+  display: inline-block;
+  content: '';
+  /* 
+        The after pseudo-class is treated as a child of the selector its attached to
+        100% of its parent.
+        */
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  /* Put the after element behind its RELATIVE parent (must be specified) */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 .btn--animated {
-    animation: moveInBottom ease-in .55s .5s;
-
-    /* The first 0% keyframe styles will be applied before the animation starts */
-    animation-fill-mode: backwards;
+  animation: moveInBottom ease-in .55s .5s;
+  /* The first 0% keyframe styles will be applied before the animation starts */
+  animation-fill-mode: backwards;
 }
