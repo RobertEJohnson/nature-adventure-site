@@ -1,0 +1,20 @@
+@mixin clearfix {
+    // appends a pseudo-element after the element
+    // this will Clear the floats
+
+    // It is named clear fix because appending the pseudo-element
+    // after the element will CLEAR the floats.
+
+    &::after {
+        //we need to specify content, or no pseudo-element will be created
+        content: "";
+
+        //we need to change the display to table
+        display: table;
+
+        //The property actually clears the float
+        //So it no longer wraps any elements around it. It basically becomes block.
+        
+        clear: both;
+    }
+}

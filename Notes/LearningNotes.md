@@ -536,3 +536,38 @@ SCSS Syntax:
    - for third-party imports
    - animation libraries
    - icon libraries etc
+
+### Review Basic Responsive Design Principles
+
+1. Fluid and Grid Layouts
+
+To allow content to easily adapt to the current viewport width used to browse the website. ```Uses % rather than px``` for all layout-related lengths.
+
+2. Flexible/Responsive Images
+
+```Images``` behave differently than text content, and so we need to ensure that they also ```adapt nicely``` to the current viewport.
+
+Images take up most of a websites size, as such we should optimize the images for different widths.
+
+3. Media Queries
+
+To change styles on certain viewport widths (breakpoints) allowing us to create a different version of our website for different widths.
+
+### Building a Custom Grid with Floats
+
+- What is a Grid
+
+A design system that allows for consistent designs.
+Consistent ```gutter``` space
+
+- How the attribute selector works
+
+
+
+- How the :not pseudo-class works;
+
+
+
+- How calc() works, and what's the difference between calc() and simple Sass operations
+
+
