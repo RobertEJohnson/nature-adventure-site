@@ -7,8 +7,7 @@
     //still not perfect, it will expand too big.
 
     max-width: $grid-width;
-    background-color: #eee;
-
+    
     //center block elements within another block
     margin: 0 auto;
 
@@ -38,7 +37,6 @@
     // select all class attributes that START with col-
     
     [class^="col-"] {
-        background-color: red;
         float: left;
         &:not(:last-child) {
             margin-right: $gutter-horizontal;

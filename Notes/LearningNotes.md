@@ -571,3 +571,44 @@ Consistent ```gutter``` space
 - How calc() works, and what's the difference between calc() and simple Sass operations
 
 
+### The About Section
+
+- Thinking about Components.
+
+- How and why to use UTILITY classes.
+
+- How to use that ```background-clip``` property.
+
+- How to transform multiple properties simultaneously.
+
+- How to use the outline-offset property together with outline;
+
+- How to style elements that are NOT hovered while others are
+
+### A Healthy Mindset
+
+1. Think First 
+2. Build Second
+3. Architect
+
+Emmet can be used to save a lot of time
+
+p*5 to make five <p></p>'s
+
+.test to make <div class="test"></div>
+section.example to make <section class="example"></section>
+
+### Emmett
+
+You can declare children within a parent by using the > 
+
+.divClass>img.divClass_imgClass
+
+You can also declare multiple classes just by adding another dot
+
+.divClass>img.divClass__imgClass.divClass__imgClass2
+
+You can also wrap things within parenthesis to multiply them
+or you can multiply the whole thing.
+
+.divClass>(img.divClass__imgClass)*3
